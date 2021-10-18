@@ -20,16 +20,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin")
 public class UmsAdminController {
-    @Autowired
+//    @Autowired
     private UmsAdminService adminService;
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
 
-//    public UmsAdminController(UmsAdminService adminService) {
-//        this.adminService = adminService;
-//    }
+    public UmsAdminController(UmsAdminService adminService) {
+        this.adminService = adminService;
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public CommonResult<UmsAdmin> register(@RequestBody UmsAdmin umsAdminParam) {
