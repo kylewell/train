@@ -1,6 +1,6 @@
 package com.kyle.train.dao;
 
-import com.kyle.train.model.UmsPermission;
+import com.kyle.train.mbg.model.UmsPermission;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

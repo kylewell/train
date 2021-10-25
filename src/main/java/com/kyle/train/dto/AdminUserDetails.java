@@ -1,7 +1,7 @@
 package com.kyle.train.dto;
 
-import com.kyle.train.model.UmsAdmin;
-import com.kyle.train.model.UmsPermission;
+import com.kyle.train.mbg.model.UmsAdmin;
+import com.kyle.train.mbg.model.UmsPermission;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

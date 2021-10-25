@@ -1,9 +1,10 @@
 package com.kyle.train.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.kyle.train.common.api.CommonResult;
 import com.kyle.train.dto.UmsAdminLoginParam;
-import com.kyle.train.model.UmsAdmin;
-import com.kyle.train.model.UmsPermission;
+import com.kyle.train.mbg.model.UmsAdmin;
+import com.kyle.train.mbg.model.UmsPermission;
 import com.kyle.train.result.ExceptionMsg;
 import com.kyle.train.result.ResponseData;
 import com.kyle.train.service.UmsAdminService;
@@ -62,9 +63,9 @@ public class UmsAdminController {
 //        return CommonResult.success(tokenMap);
 //    }
 
-    @RequestMapping(value = "/permission/{adminId}", method = RequestMethod.GET)
-    public CommonResult<List<UmsPermission>> getPermissionList(@PathVariable Long adminId) {
-        List<UmsPermission> permissionList = adminService.getPermissionList(adminId);
+    @RequestMapping(value = "/permission/{adminId}/{pageNum}/{pageSize}", method = RequestMethod.GET)
+    public CommonResult<PageInfo> getPermissionList(@PathVariable Long adminId, @PathVariable int pageNum, @PathVariable int pageSize) {
+        PageInfo permissionList = adminService.getPermissionList(adminId, pageNum, pageSize);
         return CommonResult.success(permissionList);
     }
 }

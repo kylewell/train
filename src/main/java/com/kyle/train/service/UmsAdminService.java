@@ -1,7 +1,8 @@
 package com.kyle.train.service;
 
-import com.kyle.train.model.UmsAdmin;
-import com.kyle.train.model.UmsPermission;
+import com.github.pagehelper.PageInfo;
+import com.kyle.train.mbg.model.UmsAdmin;
+import com.kyle.train.mbg.model.UmsPermission;
 
 import java.util.List;
 
@@ -33,6 +34,13 @@ public interface UmsAdminService {
 
     /**
      * 获取用户所有权限（包括角色权限和+-权限）
+     * @param adminId
+     * @return
+     */
+    PageInfo getPermissionList(Long adminId, int pageNum, int pageSize);
+
+    /**
+     *
      * @param adminId
      * @return
      */

@@ -1,11 +1,14 @@
 package com.kyle.train.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.kyle.train.common.api.CommonResult;
 import com.kyle.train.common.utils.JwtTokenUtil;
-import com.kyle.train.dao.UmsAdminMapper;
+import com.kyle.train.mbg.mapper.UmsAdminMapper;
 import com.kyle.train.dao.UmsAdminRoleRelationDao;
-import com.kyle.train.model.UmsAdmin;
-import com.kyle.train.model.UmsAdminExample;
-import com.kyle.train.model.UmsPermission;
+import com.kyle.train.mbg.model.UmsAdmin;
+import com.kyle.train.mbg.model.UmsAdminExample;
+import com.kyle.train.mbg.model.UmsPermission;
 import com.kyle.train.service.UmsAdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -90,6 +93,14 @@ public class UmsAdminServiceImpl implements UmsAdminService {
             LOGGER.warn("登录异常:{}", e.getMessage());
         }
         return token;
+    }
+
+    @Override
+    public PageInfo getPermissionList(Long adminId, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<UmsPermission> umsPermissions = adminRoleRelationDao.getPermissionList(adminId);
+        PageInfo pageInfo = new PageInfo(umsPermissions);
+        return pageInfo;
     }
 
     @Override
