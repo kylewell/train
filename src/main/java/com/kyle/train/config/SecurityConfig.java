@@ -30,19 +30,19 @@ import java.util.List;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
+//    @Autowired
     private UmsAdminService adminService;
-    @Autowired
+//    @Autowired
     private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
-    @Autowired
+//    @Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
-//    @Autowired
-//    public SecurityConfig(UmsAdminService adminService, RestfulAccessDeniedHandler restfulAccessDeniedHandler, RestAuthenticationEntryPoint restAuthenticationEntryPoint) {
-//        this.adminService = adminService;
-//        this.restfulAccessDeniedHandler = restfulAccessDeniedHandler;
-//        this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
-//    }
+    @Autowired
+    public SecurityConfig(UmsAdminService adminService, RestfulAccessDeniedHandler restfulAccessDeniedHandler, RestAuthenticationEntryPoint restAuthenticationEntryPoint) {
+        this.adminService = adminService;
+        this.restfulAccessDeniedHandler = restfulAccessDeniedHandler;
+        this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
+    }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
